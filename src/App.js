@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [book, setBook] = useState(null);
+  const [result, setResult] = useState([]);
+  const [apiKey, setApiKey] = useState(
+    "AIzaSyDASQubWULoDxLbr2qhcThaNdLSqKqrx4Y"
+  );
+
+  function handleChange(event) {
+    setBook(event.target.value);
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const value = book.trim();
+    const filterValue = value.replace(/ +/g, "+");
+    console.log(filterValue);
+
+    const response = await fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${book}:keyes&key=${apiKey}&maxResults=40`
+    );
+    const json = await response.json();
+    setResult([json]);
+    console.log(result);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>SEARCH BOOK</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={handleChange}></input>
+        <br />
+        <button type="submit">SEARCH</button>
+      </form>
     </div>
   );
 }
