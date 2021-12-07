@@ -15,7 +15,7 @@ const Api = () => {
       json = null;
       setError("erro");
     } finally {
-      setBook(json);
+      setBook(json.items);
       setLoading(false);
       return { response, json };
     }
