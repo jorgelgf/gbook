@@ -2,7 +2,6 @@ import { useState } from "react";
 import Api from "../Api/Api";
 import { Button, Input } from "@mui/material";
 import styled from "styled-components";
-import bg from "../../img/bg.jpg";
 
 const Find = () => {
   const [search, setSearch] = useState(null);
@@ -13,7 +12,6 @@ const Find = () => {
   const { book, request } = Api();
 
   const handleChange = (event) => {
-    event.preventDefault();
     setSearch(event.target.value);
   };
 
@@ -21,9 +19,8 @@ const Find = () => {
     event.preventDefault();
 
     try {
-      const value = search.trim();
-      filterValue = value.replace(/ +/g, "+");
-      //console.log(filterValue);
+      filterValue = search.trim().replace(/ +/g, "+");
+
       await request(
         `https://www.googleapis.com/books/v1/volumes?q=${filterValue}:keyes&key=${apiKey}&maxResults=20`
       );
@@ -37,68 +34,61 @@ const Find = () => {
   }
 
   return (
-    <DivFind>
-      <OpacityDiv>
-        <Title>SEARCH BOOK</Title>
+    <OpacityDiv>
+      <Title>SEARCH BOOK</Title>
+      <br />
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="search"
+          fullWidth={true}
+          onChange={handleChange}
+          size="long"
+          style={{
+            paddingLeft: "5px",
+            maxWidth: "70%",
+            marginBottom: "10px",
+            fontSize: "24px",
+            textAlign: "center",
+            border: "0px",
+          }}
+        />
         <br />
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="search"
-            fullWidth={true}
-            onChange={handleChange}
-            size="long"
-            style={{
-              paddingLeft: "5px",
-              maxWidth: "70%",
-              marginBottom: "10px",
-            }}
-          />
-          <br />
 
-          <Button
-            variant="contained"
-            type="submit"
-            style={{
-              marginLeft: "10px",
-              backgroundColor: "black",
-              marginBottom: "10px",
-            }}
-          >
-            Search
-          </Button>
-        </form>
-      </OpacityDiv>
-    </DivFind>
+        <Button
+          variant="contained"
+          type="submit"
+          style={{
+            marginLeft: "10px",
+            backgroundColor: "black",
+            marginBottom: "10px",
+          }}
+        >
+          Search
+        </Button>
+      </form>
+    </OpacityDiv>
   );
 };
-const DivFind = styled.div`
-  display: flex;
 
-  text-align: center;
-  flex-direction: column;
-  background-image: url(${bg});
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-`;
 const OpacityDiv = styled.div`
   background-color: #f5f0f0b7;
   margin: 100px;
   border-radius: 10px;
+  @media (max-width: 400px) {
+    width: 200px;
+  }
 `;
 
 const Title = styled.h1`
   font-weight: 700;
   text-align: center;
   margin-bottom: 5%;
-  z-index: 2;
   font-size: 40px;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   @media (max-width: 400px) {
-    font-size: 30px;
+    font-size: 25px;
   }
 `;
 
