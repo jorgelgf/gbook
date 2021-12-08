@@ -114,7 +114,7 @@ const OpacityDiv = styled.div`
   margin: auto;
   margin-top: 100px;
   border-radius: 10px;
-  width: 400px;
+  width: 70%;
   margin-bottom: 10px;
 
   @media (max-width: 400px) {
