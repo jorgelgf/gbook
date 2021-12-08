@@ -116,10 +116,6 @@ const OpacityDiv = styled.div`
   border-radius: 10px;
   width: 70%;
   margin-bottom: 10px;
-
-  @media (max-width: 400px) {
-    width: 200px;
-  }
 `;
 
 const Title = styled.h1`
