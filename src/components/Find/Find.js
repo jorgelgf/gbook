@@ -79,7 +79,7 @@ const Find = () => {
       <GridDiv>
         {book &&
           book.map((items, index) => (
-            <DivImg key={items.volumeInfo.description}>
+            <DivImg key={index}>
               {items.volumeInfo.imageLinks.thumbnail ? (
                 <img
                   style={{

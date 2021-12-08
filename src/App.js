@@ -23,7 +23,7 @@ const DivFull = styled.div`
   border: solid 10px white;
   height: 1200px;
   @media (max-width: 990px) {
-    min-height: 700px;
+    height: auto;
   }
 `;
 const DivInter = styled.div`
