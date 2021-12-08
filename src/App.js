@@ -21,9 +21,9 @@ const DivFull = styled.div`
   justify-content: center;
   width: auto;
   border: solid 10px white;
-  height: 1200px;
+  height: 100vh;
   @media (max-width: 990px) {
-    height: auto;
+    height: 100vh;
   }
 `;
 const DivInter = styled.div`

@@ -26,7 +26,7 @@ const Find = () => {
       filterValue = search.trim().replace(/ +/g, "+");
 
       await request(
-        `https://www.googleapis.com/books/v1/volumes?q=${filterValue}:keyes&key=${apiKey}&maxResults=30`
+        `https://www.googleapis.com/books/v1/volumes?q=${filterValue}:keyes&key=${apiKey}`
       );
     } catch (e) {
       console.log(
