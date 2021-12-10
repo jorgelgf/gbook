@@ -2,31 +2,24 @@ import { Fragment, useState } from "react";
 import Api from "../Api/Api";
 import { Button, Input } from "@mui/material";
 import styled from "styled-components";
+import Card from "../Card/Card";
 
-const Find = () => {
+export default function Find() {
   const [search, setSearch] = useState(null);
-  /*
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-*/
+
   let apiKey = "AIzaSyDASQubWULoDxLbr2qhcThaNdLSqKqrx4Y";
-
-  let filterValue = "";
   const { book, request } = Api();
-
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     try {
-      filterValue = search.trim().replace(/ +/g, "+");
-
+      console.log(search);
+      //  if (filterValue.length > 1 && filterValue !== null && filterValue !== "")
       await request(
-        `https://www.googleapis.com/books/v1/volumes?q=${filterValue}:keyes&key=${apiKey}`
+        `https://www.googleapis.com/books/v1/volumes?q=${search}:keyes&key=${apiKey}`
       );
     } catch (e) {
       console.log(
@@ -34,12 +27,6 @@ const Find = () => {
         e
       );
     }
-    /*
-    setTimeout(() => {
-      console.log("dentro de find", book);
-      console.log("erro: ", error);
-    }, 8000);
-    */
   }
 
   return (
@@ -51,14 +38,14 @@ const Find = () => {
           <Input
             type="search"
             onChange={handleChange}
-            size="small"
             style={{
-              paddingLeft: "5px",
-              maxWidth: "70%",
+              paddingLeft: "10px",
               marginBottom: "10px",
               fontSize: "24px",
-              textAlign: "center",
               border: "0px",
+              color: "white",
+              borderBottom: "white",
+              maxWidth: "50%",
             }}
           />
           <br />
@@ -68,8 +55,9 @@ const Find = () => {
             type="submit"
             style={{
               marginLeft: "10px",
-              backgroundColor: "black",
+              backgroundColor: "white",
               marginBottom: "10px",
+              color: "black",
             }}
           >
             Search
@@ -81,41 +69,48 @@ const Find = () => {
           book.map((items, index) => (
             <DivImg key={index}>
               {items.volumeInfo.imageLinks.thumbnail ? (
-                <img
-                  style={{
-                    width: "120px",
-                    height: "150px",
-                    borderRadius: "10px",
-                    boxShadow: "0 0 2em black",
-                  }}
-                  src={
-                    items.volumeInfo.imageLinks === undefined || "" || null
-                      ? ""
-                      : items.volumeInfo.imageLinks.thumbnail
-                  }
-                  alt={
-                    items.volumeInfo.title === undefined
-                      ? ""
-                      : items.volumeInfo.title
-                  }
-                />
+                <>
+                  <img
+                    style={{
+                      width: "120px",
+                      height: "150px",
+                      borderRadius: "10px",
+                      boxShadow: "0 0 1em #3d3a3a8a",
+                    }}
+                    src={
+                      items.volumeInfo.imageLinks === undefined || "" || null
+                        ? ""
+                        : items.volumeInfo.imageLinks.thumbnail
+                    }
+                    alt={
+                      items.volumeInfo.title === undefined
+                        ? ""
+                        : items.volumeInfo.title
+                    }
+                  />
+                  <Card
+                    title={items.volumeInfo.title}
+                    description={items.volumeInfo.description}
+                  />
+                </>
               ) : (
-                <p>deu rui</p>
+                <p>deu rui ;t</p>
               )}
             </DivImg>
           ))}
       </GridDiv>
     </>
   );
-};
+}
 
 const OpacityDiv = styled.div`
-  background-color: #f5f0f0b7;
+  background-color: #080808;
+  color: white;
   margin: auto;
   margin-top: 100px;
   border-radius: 10px;
   width: 70%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 
 const Title = styled.h1`
@@ -144,21 +139,15 @@ const DivImg = styled.div`
 const GridDiv = styled.div`
   // max-width: 1200px;
   display: grid;
+  width: 70%;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 30px;
-  margin: 50px;
+  margin: auto;
 `;
+
 /*
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+   <Card
+                    title={items.volumeInfo.title}
+                    description={items.volumeInfo.description}
+                  />
 */
-export default Find;

@@ -30,7 +30,7 @@ const DivInter = styled.div`
   display: flex;
   text-align: center;
   flex-direction: column;
-  background-image: url(${bg});
+  // background-image: url(${bg});
   background-position: center;
   background-size: bottom;
   width: 100%;
