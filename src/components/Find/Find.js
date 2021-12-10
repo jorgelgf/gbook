@@ -70,7 +70,7 @@ export default function Find() {
         {book
           ? book.map((e, i) => {
               return (
-                <div key={i}>
+                <DivImg key={i}>
                   <img
                     style={{
                       width: "120px",
@@ -89,7 +89,7 @@ export default function Find() {
                     title={e.volumeInfo.title}
                     description={e.volumeInfo.description}
                   />
-                </div>
+                </DivImg>
               );
             })
           : null}
@@ -139,32 +139,3 @@ const GridDiv = styled.div`
   gap: 30px;
   margin: auto;
 `;
-
-/*
-    {book &&
-          book.map((items, index) => (
-            <DivImg key={index}>
-              <>
-                {items.volumeInfo.imageLinks.smallThumbnail ? (
-                  <img
-                    src={items.volumeInfo.imageLinks.smallThumbnail}
-                    style={{
-                      width: "120px",
-                      height: "150px",
-                      borderRadius: "10px",
-                      boxShadow: "0 0 1em #3d3a3a8a",
-                    }}
-                    alt={items.volumeInfo.title}
-                  />
-                ) : (
-                  { notfound }
-                )}
-
-                <Card
-                  title={items.volumeInfo.title}
-                  description={items.volumeInfo.description}
-                />
-              </>
-            </DivImg>
-          ))}
-*/
