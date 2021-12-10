@@ -16,7 +16,7 @@ const style = {
   //border: "2px solid #000",
   boxShadow: 24,
   alignText: "justify",
-  p: 4,
+  p: 3,
 };
 
 export default function Card({ title, description }) {
@@ -26,7 +26,9 @@ export default function Card({ title, description }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Info</Button>
+      <Button onClick={handleOpen} style={{ color: "black" }}>
+        +Info
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -41,19 +43,12 @@ export default function Card({ title, description }) {
             id="modal-modal-description"
             sx={{ mt: 2, textAlign: "justify" }}
           >
-            <p>
-              <h3>Description</h3>
-            </p>
-            {description || description.length > 299
+            Description
+            {description && description.length > 299
               ? description.substr(0, 300) + " [ ... ]"
-              : "Without description"}
-
-            <footer
-              style={{ marginTop: "50px", textAlign: "right" }}
-              onClick={handleClose}
-            >
-              <ButtonX>x</ButtonX>
-            </footer>
+              : `\n Without description `}
+            <br />
+            <ButtonX onClick={handleClose}>x</ButtonX>
           </Typography>
         </Box>
       </Modal>
@@ -66,4 +61,6 @@ const ButtonX = styled.button`
   border-radius: 5px;
   color: white;
   background-color: black;
+  margin-top: "50px";
+  text-align: "right";
 `;

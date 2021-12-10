@@ -78,9 +78,9 @@ export default function Find() {
                       boxShadow: "0 0 1em #3d3a3a8a",
                     }}
                     src={
-                      items.volumeInfo.imageLinks === undefined || "" || null
-                        ? ""
-                        : items.volumeInfo.imageLinks.thumbnail
+                      items.volumeInfo.imageLinks.thumbnail
+                        ? items.volumeInfo.imageLinks.thumbnail
+                        : "items.volumeInfo.imageLinks.thumbnail"
                     }
                     alt={
                       items.volumeInfo.title === undefined
