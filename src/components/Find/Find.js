@@ -18,10 +18,8 @@ export default function Find() {
     event.preventDefault();
     try {
       //  if (filterValue.length > 1 && filterValue !== null && filterValue !== "")
-      if (search.length > 1)
-        await request(
-          `https://www.googleapis.com/books/v1/volumes?q=${search}`
-        );
+
+      await request(`https://www.googleapis.com/books/v1/volumes?q=${search}`);
     } catch (e) {
       console.log(
         "Você precisa digitar algo \nAbaixo o código do erro gerado: \n",
