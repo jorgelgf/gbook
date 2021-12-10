@@ -44,9 +44,9 @@ export default function Card({ title, description }) {
             <p>
               <h3>Description</h3>
             </p>
-            {description && description.length > 299
+            {description || description.length > 299
               ? description.substr(0, 300) + " [ ... ]"
-              : description}
+              : "Without description"}
 
             <footer
               style={{ marginTop: "50px", textAlign: "right" }}
