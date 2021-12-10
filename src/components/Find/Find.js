@@ -32,7 +32,7 @@ export default function Find() {
   return (
     <>
       <OpacityDiv>
-        <Title>SEARCH BOOK</Title>
+        <Title>BOOK SEARCH</Title>
         <br />
         <form onSubmit={handleSubmit}>
           <Input
@@ -46,6 +46,7 @@ export default function Find() {
               color: "white",
               borderBottom: "white",
               maxWidth: "50%",
+              background color: "white",
             }}
           />
           <br />
