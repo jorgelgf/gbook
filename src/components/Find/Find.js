@@ -46,7 +46,7 @@ export default function Find() {
               color: "white",
               borderBottom: "white",
               maxWidth: "50%",
-              backgroundColor: "white",
+              backgroundColor: "#3B3C3C3",
             }}
           />
           <br />
