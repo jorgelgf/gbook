@@ -3,11 +3,12 @@ import Api from "../Api/Api";
 import { Button, Input } from "@mui/material";
 import styled from "styled-components";
 import Card from "../Card/Card";
+import notfound from "../../img/notfound.png";
 
 export default function Find() {
   const [search, setSearch] = useState(null);
 
-  let apiKey = "AIzaSyDASQubWULoDxLbr2qhcThaNdLSqKqrx4Y";
+  // let apiKey = "AIzaSyDASQubWULoDxLbr2qhcThaNdLSqKqrx4Y";
   const { book, request } = Api();
   const handleChange = (event) => {
     setSearch(event.target.value);
@@ -19,7 +20,7 @@ export default function Find() {
       //  if (filterValue.length > 1 && filterValue !== null && filterValue !== "")
       if (search.length > 1)
         await request(
-          `https://www.googleapis.com/books/v1/volumes?q=${search}:keyes&key=${apiKey}`
+          `https://www.googleapis.com/books/v1/volumes?q=${search}`
         );
     } catch (e) {
       console.log(
@@ -66,11 +67,10 @@ export default function Find() {
         </form>
       </OpacityDiv>
       <GridDiv>
-        {book &&
-          book.map((items, index) => (
-            <DivImg key={index}>
-              {items.volumeInfo.imageLinks.thumbnail ? (
-                <>
+        {book
+          ? book.map((e, i) => {
+              return (
+                <div key={i}>
                   <img
                     style={{
                       width: "120px",
@@ -79,26 +79,20 @@ export default function Find() {
                       boxShadow: "0 0 1em #3d3a3a8a",
                     }}
                     src={
-                      items.volumeInfo.imageLinks.thumbnail
-                        ? items.volumeInfo.imageLinks.thumbnail
-                        : "items.volumeInfo.imageLinks.thumbnail"
+                      e.volumeInfo.imageLinks
+                        ? e.volumeInfo.imageLinks.smallThumbnail
+                        : notfound
                     }
-                    alt={
-                      items.volumeInfo.title === undefined
-                        ? ""
-                        : items.volumeInfo.title
-                    }
+                    alt=""
                   />
                   <Card
-                    title={items.volumeInfo.title}
-                    description={items.volumeInfo.description}
+                    title={e.volumeInfo.title}
+                    description={e.volumeInfo.description}
                   />
-                </>
-              ) : (
-                <p>deu rui ;t</p>
-              )}
-            </DivImg>
-          ))}
+                </div>
+              );
+            })
+          : null}
       </GridDiv>
     </>
   );
@@ -147,8 +141,30 @@ const GridDiv = styled.div`
 `;
 
 /*
-   <Card
-                    title={items.volumeInfo.title}
-                    description={items.volumeInfo.description}
+    {book &&
+          book.map((items, index) => (
+            <DivImg key={index}>
+              <>
+                {items.volumeInfo.imageLinks.smallThumbnail ? (
+                  <img
+                    src={items.volumeInfo.imageLinks.smallThumbnail}
+                    style={{
+                      width: "120px",
+                      height: "150px",
+                      borderRadius: "10px",
+                      boxShadow: "0 0 1em #3d3a3a8a",
+                    }}
+                    alt={items.volumeInfo.title}
                   />
+                ) : (
+                  { notfound }
+                )}
+
+                <Card
+                  title={items.volumeInfo.title}
+                  description={items.volumeInfo.description}
+                />
+              </>
+            </DivImg>
+          ))}
 */

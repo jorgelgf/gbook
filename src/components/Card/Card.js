@@ -37,15 +37,15 @@ export default function Card({ title, description }) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {title}
+            {title ? title : " Without title"}
           </Typography>
           <Typography
             id="modal-modal-description"
             sx={{ mt: 2, textAlign: "justify" }}
           >
-            Description
+            Description:
             {description && description.length > 299
-              ? description.substr(0, 300) + " [ ... ]"
+              ? " " + description.substr(0, 300) + " [ ... ]"
               : `\n Without description `}
             <br />
             <ButtonX onClick={handleClose}>x</ButtonX>
