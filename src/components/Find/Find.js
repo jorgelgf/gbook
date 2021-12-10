@@ -16,11 +16,11 @@ export default function Find() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      console.log(search);
       //  if (filterValue.length > 1 && filterValue !== null && filterValue !== "")
-      await request(
-        `https://www.googleapis.com/books/v1/volumes?q=${search}:keyes&key=${apiKey}`
-      );
+      if (search.length > 1)
+        await request(
+          `https://www.googleapis.com/books/v1/volumes?q=${search}:keyes&key=${apiKey}`
+        );
     } catch (e) {
       console.log(
         "Você precisa digitar algo \nAbaixo o código do erro gerado: \n",
