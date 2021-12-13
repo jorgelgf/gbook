@@ -1,6 +1,5 @@
 import { Fragment, useState } from "react";
 import Api from "../Api/Api";
-import { Button, Input } from "@mui/material";
 import styled from "styled-components";
 import Card from "../Card/Card";
 import notfound from "../../img/notfound.png";
@@ -31,37 +30,31 @@ export default function Find() {
   return (
     <>
       <OpacityDiv>
-        <Title>BOOK SEARCH</Title>
+        <Title>
+          <label htmlFor="search">BOOK SEARCH</label>
+        </Title>
         <br />
         <form onSubmit={handleSubmit}>
-          <Input
-            type="search"
-            onChange={handleChange}
-            style={{
-              paddingLeft: "10px",
-              marginBottom: "10px",
-              fontSize: "24px",
-              border: "0px",
-              color: "#222222",
-              borderBottom: "white",
-              maxWidth: "50%",
-              backgroundColor: "white",
-            }}
-          />
-          <br />
-
-          <Button
-            variant="contained"
-            type="submit"
-            style={{
-              marginLeft: "10px",
-              backgroundColor: "white",
-              marginBottom: "10px",
-              color: "black",
-            }}
-          >
-            Search
-          </Button>
+          <DivInputButton>
+            <input
+              type="search"
+              name="search"
+              id="search"
+              onChange={handleChange}
+              style={{
+                border: "1px solid white",
+                paddingLeft: "10px",
+                fontSize: "24px",
+                color: "#222222",
+                width: "80%",
+                height: "50px",
+                backgroundColor: "white",
+                borderRadius: "10px 0 0 10px",
+                outline: "0",
+              }}
+            />
+            <ButtonStyle>SEARCH</ButtonStyle>
+          </DivInputButton>
         </form>
       </OpacityDiv>
       <GridDiv>
@@ -97,7 +90,7 @@ export default function Find() {
 }
 
 const OpacityDiv = styled.div`
-  background-color: #080808;
+  background-color: #222222;
   color: white;
   margin: auto;
   margin-top: 100px;
@@ -118,6 +111,35 @@ const Title = styled.h1`
     font-size: 25px;
   }
 `;
+
+const DivInputButton = styled.div`
+  //border: solid red 10px;
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  padding: 0;
+`;
+const ButtonStyle = styled.button`
+  background: white;
+  color: #222222;
+  height: 50px;
+  border-radius: 0 10px 10px 0;
+  border: 10px solid white;
+  :hover {
+    background: #e26262;
+    border-color: #e26262;
+    color: white;
+  }
+`;
+const GridDiv = styled.div`
+  // max-width: 1200px;
+  display: grid;
+  width: 70%;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 30px;
+  margin: auto;
+`;
+
 const DivImg = styled.div`
   opacity: 0;
   transform: translateX(-20px);
@@ -128,12 +150,3 @@ const DivImg = styled.div`
       opacity: 1;
       transform: initial;
     }`;
-
-const GridDiv = styled.div`
-  // max-width: 1200px;
-  display: grid;
-  width: 70%;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 30px;
-  margin: auto;
-`;

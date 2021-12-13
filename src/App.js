@@ -1,8 +1,6 @@
 import React from "react";
-import "./App.css";
 import styled from "styled-components";
 import Find from "./components/Find/Find";
-import bg from "./img/bg.jpg";
 import Api from "./components/Api/Api";
 
 function App() {
@@ -20,17 +18,12 @@ const DivFull = styled.div`
   display: flex;
   justify-content: center;
   width: auto;
-  border: solid 10px white;
   height: 100vh;
-  @media (max-width: 990px) {
-    height: 100vh;
-  }
 `;
 const DivInter = styled.div`
   display: flex;
   text-align: center;
   flex-direction: column;
-  // background-image: url(${bg});
   background-position: center;
   background-size: bottom;
   width: 100%;
