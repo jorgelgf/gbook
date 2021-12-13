@@ -30,10 +30,6 @@ const DivInter = styled.div`
   height: 100%;
   opacity: 0.8;
   border-radius: 20px;
-
-  @media (max-width: 1024px) {
-    background-size: 10%%;
-  }
 `;
 
 export default App;

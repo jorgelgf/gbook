@@ -15,6 +15,7 @@ export default function Find() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+
     try {
       //  if (filterValue.length > 1 && filterValue !== null && filterValue !== "")
 
@@ -79,6 +80,20 @@ export default function Find() {
                   <Card
                     title={e.volumeInfo.title}
                     description={e.volumeInfo.description}
+                    authors={e.volumeInfo.authors}
+                    date={
+                      e.volumeInfo.publishedDate
+                        ? e.volumeInfo.publishedDate
+                        : " Without date"
+                    }
+                    read={
+                      e.volumeInfo.previewLink ? e.volumeInfo.previewLink : "#"
+                    }
+                    img={
+                      e.volumeInfo.imageLinks
+                        ? e.volumeInfo.imageLinks.smallThumbnail
+                        : notfound
+                    }
                   />
                 </DivImg>
               );
@@ -138,6 +153,7 @@ const GridDiv = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 30px;
   margin: auto;
+  margin-top: 50px;
 `;
 
 const DivImg = styled.div`

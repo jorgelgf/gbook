@@ -4,13 +4,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
+import favo from "../../img/favo.png";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 320,
   borderRadius: "10px",
   bgcolor: "white",
   //border: "2px solid #000",
@@ -19,11 +20,20 @@ const style = {
   p: 3,
 };
 
-export default function Card({ title, description }) {
+export default function Card({ title, description, authors, date, read }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const [favorite, setFavorite] = React.useState({
+    title: "",
+    description: "",
+    authors: "",
+    date: "",
+    read: "",
+  });
+  const handleClickSetFavorit = () => {
+    alert("entrou");
+  };
   return (
     <div>
       <Button onClick={handleOpen} style={{ color: "black" }}>
@@ -37,6 +47,12 @@ export default function Card({ title, description }) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
+            <p style={{ fontSize: "14px" }}>
+              {" "}
+              <ButtonFavorite onClick={handleClickSetFavorit}>
+                <ImageFavo src={favo} />
+              </ButtonFavorite>{" "}
+            </p>
             {title ? title : " Without title"}
           </Typography>
           <Typography
@@ -47,6 +63,26 @@ export default function Card({ title, description }) {
             {description && description.length > 299
               ? " " + description.substr(0, 300) + " [ ... ]"
               : `\n Without description `}
+            <br />
+            <br />
+            <b>Authors:</b> {authors}
+            <br />
+            <b>Publication Date: </b>
+            {date}
+            <br />
+            <b>
+              Read:{" "}
+              <a
+                rel="noreferrer"
+                href={read}
+                target="_blank"
+                style={{ textDecoration: "none", color: "blue" }}
+              >
+                {" "}
+                Click here
+              </a>
+            </b>
+            <br />
             <br />
             <ButtonX onClick={handleClose}>x</ButtonX>
           </Typography>
@@ -59,8 +95,22 @@ const ButtonX = styled.button`
   margin: 10px;
   padding: 3px 3px 3px 3px;
   border-radius: 5px;
+  width: 30px;
   color: white;
-  background-color: black;
+  border: none;
+  background-color: #222222;
   margin-top: "50px";
-  text-align: "right";
+`;
+const ButtonFavorite = styled.button`
+  margin-bottom: 10px;
+  border-color: white;
+  background: white;
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 20%;
+`;
+const ImageFavo = styled.img`
+  width: 18px;
 `;
