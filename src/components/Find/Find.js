@@ -7,7 +7,6 @@ import notfound from "../../img/notfound.png";
 export default function Find() {
   const [search, setSearch] = useState(null);
 
-  // let apiKey = "AIzaSyDASQubWULoDxLbr2qhcThaNdLSqKqrx4Y";
   const { book, request } = Api();
   const handleChange = (event) => {
     setSearch(event.target.value);
@@ -78,9 +77,19 @@ export default function Find() {
                     alt=""
                   />
                   <Card
-                    title={e.volumeInfo.title}
-                    description={e.volumeInfo.description}
-                    authors={e.volumeInfo.authors}
+                    title={
+                      e.volumeInfo.title ? e.volumeInfo.title : " Without title"
+                    }
+                    description={
+                      e.volumeInfo.description
+                        ? e.volumeInfo.description
+                        : " Without description"
+                    }
+                    authors={
+                      e.volumeInfo.authors
+                        ? e.volumeInfo.authors
+                        : " Without authors"
+                    }
                     date={
                       e.volumeInfo.publishedDate
                         ? e.volumeInfo.publishedDate

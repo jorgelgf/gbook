@@ -20,20 +20,20 @@ const style = {
   p: 3,
 };
 
-export default function Card({ title, description, authors, date, read }) {
+export default function Card({ title, description, authors, date, read, img }) {
+  //let index = 0;
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const [favorite, setFavorite] = React.useState({
-    title: "",
-    description: "",
-    authors: "",
-    date: "",
-    read: "",
-  });
-  const handleClickSetFavorit = () => {
-    alert("entrou");
+  const handleOpen = () => {
+    setOpen(true);
   };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const addFavor = (title) => {
+    console.log(typeof title);
+  };
+
   return (
     <div>
       <Button onClick={handleOpen} style={{ color: "black" }}>
@@ -49,18 +49,18 @@ export default function Card({ title, description, authors, date, read }) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <p style={{ fontSize: "14px" }}>
               {" "}
-              <ButtonFavorite onClick={handleClickSetFavorit}>
+              <ButtonFavorite onClick={() => addFavor(title)}>
                 <ImageFavo src={favo} />
               </ButtonFavorite>{" "}
             </p>
-            {title ? title : " Without title"}
+            {title}
           </Typography>
           <Typography
             id="modal-modal-description"
             sx={{ mt: 2, textAlign: "justify" }}
           >
             Description:
-            {description && description.length > 299
+            {description.length > 299
               ? " " + description.substr(0, 300) + " [ ... ]"
               : `\n Without description `}
             <br />
