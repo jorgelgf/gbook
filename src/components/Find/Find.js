@@ -17,7 +17,9 @@ export default function Find() {
     event.preventDefault();
 
     try {
-      await request(`https://www.googleapis.com/books/v1/volumes?q=${search}`);
+      await request(
+        `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`
+      );
     } catch (e) {
       console.log(
         "Você precisa digitar algo \nAbaixo o código do erro gerado: \n",
