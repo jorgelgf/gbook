@@ -3,6 +3,7 @@ import Api from "../Api/Api";
 import styled from "styled-components";
 import Card from "../Card/Card";
 import notfound from "../../img/notfound.png";
+import books from "../../img/books.jpg";
 
 export default function Find() {
   const [search, setSearch] = useState(null);
@@ -123,8 +124,10 @@ export default function Find() {
 }
 
 const OpacityDiv = styled.div`
-  background-color: #222222;
-  color: white;
+  // background-color: #222222;
+  background-image: url(${books});
+  // color: white;
+  background-size: cover;
   margin: auto;
   margin-top: 100px;
   border-radius: 10px;
@@ -136,7 +139,11 @@ const Title = styled.h1`
   font-weight: 700;
   text-align: center;
   margin-bottom: 5%;
-  font-size: 40px;
+  font-size: 60px;
+  color: white;
+  text-shadow: 2px 2px black;
+
+  opacity: 1;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
