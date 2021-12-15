@@ -7,7 +7,7 @@ import notfound from "../../img/notfound.png";
 export default function Find() {
   const [search, setSearch] = useState(null);
 
-  const { book, request } = Api();
+  const { book, request, loading } = Api();
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
@@ -16,8 +16,6 @@ export default function Find() {
     event.preventDefault();
 
     try {
-      //  if (filterValue.length > 1 && filterValue !== null && filterValue !== "")
-
       await request(`https://www.googleapis.com/books/v1/volumes?q=${search}`);
     } catch (e) {
       console.log(
@@ -26,7 +24,18 @@ export default function Find() {
       );
     }
   }
-
+  if (loading)
+    return (
+      <>
+        <OpacityDiv>
+          {" "}
+          <Title>
+            <label htmlFor="search">BOOK SEARCH</label>
+          </Title>
+        </OpacityDiv>
+        <DivLoading></DivLoading>
+      </>
+    );
   return (
     <>
       <OpacityDiv>
@@ -137,7 +146,6 @@ const Title = styled.h1`
 `;
 
 const DivInputButton = styled.div`
-  //border: solid red 10px;
   display: flex;
   justify-content: center;
   margin: 30px;
@@ -156,7 +164,6 @@ const ButtonStyle = styled.button`
   }
 `;
 const GridDiv = styled.div`
-  // max-width: 1200px;
   display: grid;
   width: 70%;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -165,12 +172,29 @@ const GridDiv = styled.div`
   margin-top: 50px;
 `;
 
+const DivLoading = styled.div`
+  width: 100px;
+  height: 100px;
+  border: 5px solid;
+  border-radius: 50%;
+  border-top-color: transparent;
+  margin: 100px auto;
+  color: #222222;
+  animation: load 0.5s linear infinite;
+
+  @keyframes load {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
 const DivImg = styled.div`
   opacity: 0;
-  transform: translateX(-20px);
-  animation: animeLeft 0.3s forwards;
+  transform: translateY(-50px);
+  animation: animeTop 0.5s forwards;
 
-  @keyframes animeLeft {
+  @keyframes animeTop {
     to {
       opacity: 1;
       transform: initial;
