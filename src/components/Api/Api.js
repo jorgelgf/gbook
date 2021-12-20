@@ -17,6 +17,7 @@ const Api = () => {
     } finally {
       setBook(json.items);
       setLoading(false);
+
       return { response, json };
     }
   }, []);
