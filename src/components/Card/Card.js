@@ -49,13 +49,18 @@ export default function Card({ title, description, authors, date, read, img }) {
         >
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              <p style={{ fontSize: "14px" }}>
+              <p style={{ fontSize: "14px", display: "flex" }}>
                 {" "}
                 <ButtonFavorite
                   onClick={(event) => addFavor(title, read, event)}
                 >
                   <ImageFavo src={favo} />
                 </ButtonFavorite>{" "}
+                <ButtonFavoriteOff
+                  onClick={(title) => localStorage.clear(title)}
+                >
+                  Unfavor
+                </ButtonFavoriteOff>
               </p>
               {title}
             </Typography>
@@ -116,6 +121,17 @@ const ButtonFavorite = styled.button`
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 20%;
+`;
+
+const ButtonFavoriteOff = styled.button`
+  background: #d68484c7;
+  border: #fff7f7bd solid 0.1px;
+  border-radius: 10%;
+  color: white;
+  margin-left: 70%;
+  :hover {
+    background: #eb3c3cc6;
+  }
 `;
 const ImageFavo = styled.img`
   width: 18px;
