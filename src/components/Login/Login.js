@@ -6,9 +6,9 @@ import { useNavigate } from "react-router";
 
 const Login = () => {
   const navigate = useNavigate();
-  const reponseGoogle = (reponse) => {
-    console.log(reponse);
-    console.log(reponse.tokenId);
+  const responseGoogle = (response) => {
+    //console.log(response);
+    // console.log(response.tokenId);
     navigate("/search");
   };
 
@@ -17,8 +17,8 @@ const Login = () => {
       <GoogleLogin
         clientId="102077983575-he8108hse3fcjeh1pf27qulvpn9jul72.apps.googleusercontent.com"
         buttonText="Continue with Google"
-        onSuccess={reponseGoogle}
-        onFailure={reponseGoogle}
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
       />
 
       <br />

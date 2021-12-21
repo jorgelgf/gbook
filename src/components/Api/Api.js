@@ -13,7 +13,7 @@ const Api = () => {
       json = await response.json();
     } catch (erro) {
       json = null;
-      setError("erro");
+      setError("erro: ", erro);
     } finally {
       setBook(json.items);
       setLoading(false);

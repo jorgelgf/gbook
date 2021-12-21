@@ -131,7 +131,7 @@ const OpacityDiv = styled.div`
   // color: white;
   background-size: cover;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 20px;
   border-radius: 10px;
   width: 70%;
   margin-bottom: 30px;

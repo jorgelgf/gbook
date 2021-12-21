@@ -14,81 +14,86 @@ const style = {
   width: 320,
   borderRadius: "10px",
   bgcolor: "white",
-  //border: "2px solid #000",
   boxShadow: 24,
   alignText: "justify",
   p: 3,
 };
 
 export default function Card({ title, description, authors, date, read, img }) {
-  //let index = 0;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
+    //console.log("local: ", localStorage.getItem(title));
   };
-  const handleClose = () => {
+  const handleClose = (title) => {
     setOpen(false);
   };
 
-  const addFavor = (title) => {
-    console.log(typeof title);
+  const addFavor = (title, read, event) => {
+    event.preventDefault();
+    localStorage.setItem(title, [read]);
   };
 
   return (
-    <div>
-      <Button onClick={handleOpen} style={{ color: "black" }}>
-        +Info
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            <p style={{ fontSize: "14px" }}>
-              {" "}
-              <ButtonFavorite onClick={() => addFavor(title)}>
-                <ImageFavo src={favo} />
-              </ButtonFavorite>{" "}
-            </p>
-            {title}
-          </Typography>
-          <Typography
-            id="modal-modal-description"
-            sx={{ mt: 2, textAlign: "justify" }}
-          >
-            Description:
-            {description.length > 299
-              ? " " + description.substr(0, 300) + " [ ... ]"
-              : `\n Without description `}
-            <br />
-            <br />
-            <b>Authors:</b> {authors}
-            <br />
-            <b>Publication Date: </b>
-            {date}
-            <br />
-            <b>
-              Read:{" "}
-              <a
-                rel="noreferrer"
-                href={read}
-                target="_blank"
-                style={{ textDecoration: "none", color: "blue" }}
-              >
+    <>
+      {" "}
+      <div>
+        <Button onClick={handleOpen} style={{ color: "black" }}>
+          +Info
+        </Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              <p style={{ fontSize: "14px" }}>
                 {" "}
-                Click here
-              </a>
-            </b>
-            <br />
-            <br />
-            <ButtonX onClick={handleClose}>x</ButtonX>
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
+                <ButtonFavorite
+                  onClick={(event) => addFavor(title, read, event)}
+                >
+                  <ImageFavo src={favo} />
+                </ButtonFavorite>{" "}
+              </p>
+              {title}
+            </Typography>
+            <Typography
+              id="modal-modal-description"
+              sx={{ mt: 2, textAlign: "justify" }}
+            >
+              Description:
+              {description.length > 299
+                ? " " + description.substr(0, 300) + " [ ... ]"
+                : `\n Without description `}
+              <br />
+              <br />
+              <b>Authors:</b> {authors}
+              <br />
+              <b>Publication Date: </b>
+              {date}
+              <br />
+              <b>
+                Read:{" "}
+                <a
+                  rel="noreferrer"
+                  href={read}
+                  target="_blank"
+                  style={{ textDecoration: "none", color: "blue" }}
+                >
+                  {" "}
+                  Click here
+                </a>
+              </b>
+              <br />
+              <br />
+              <ButtonX onClick={handleClose}>x</ButtonX>
+            </Typography>
+          </Box>
+        </Modal>
+      </div>
+    </>
   );
 }
 const ButtonX = styled.button`
@@ -100,6 +105,7 @@ const ButtonX = styled.button`
   border: none;
   background-color: #222222;
   margin-top: "50px";
+  margin-left: 90%;
 `;
 const ButtonFavorite = styled.button`
   margin-bottom: 10px;
