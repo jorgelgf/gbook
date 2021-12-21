@@ -1,18 +1,41 @@
 import React from "react";
 import styled from "styled-components";
 import Find from "../Find/Find";
+import { Link } from "react-router-dom";
+import remove from "../../img/remove.png";
+import favo from "../../img/favo.png";
 
 const Home = () => {
+  //const navigate = useNavigate();
+
+  //const handleClick = () => navigate("/favorites");
   return (
     <div>
       <DivFull>
         <DivInter>
           <MenuBar>
-            {" "}
-            <ButtonFavor onClick={() => localStorage.clear()}>
-              CLEAR ALL FAVORITES
+            <ButtonFavor
+              onClick={() => localStorage.clear()}
+              style={{
+                textDecoration: "none",
+                color: "#7F7F87",
+                fontSize: "14px",
+              }}
+            >
+              <ImgRemoveFavor src={remove} alt="remove favorites" /> Remove
+              favorites
             </ButtonFavor>
-            <ButtonFavor>MY FAVORITES</ButtonFavor>
+            <Link
+              to="/favorites"
+              style={{
+                textDecoration: "none",
+                color: "#7F7F87",
+                fontSize: "14px",
+              }}
+            >
+              <ImgRemoveFavor src={favo} alt="favorites" />
+              My favorites
+            </Link>
           </MenuBar>
           <Find />
         </DivInter>
@@ -42,7 +65,7 @@ const MenuBar = styled.div`
   margin: 50px auto 0 auto;
   display: flex;
   //border: solid black 1px;
-  width: 20%;
+  width: 60%;
   justify-content: space-between;
   border-radius: 10px;
 `;
@@ -61,4 +84,7 @@ const ButtonFavor = styled.button`
   }
 `;
 
+const ImgRemoveFavor = styled.img`
+  width: 15px;
+`;
 export default Home;

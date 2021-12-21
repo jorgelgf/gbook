@@ -59,7 +59,7 @@ export default function Card({ title, description, authors, date, read, img }) {
                 <ButtonFavoriteOff
                   onClick={(title) => localStorage.clear(title)}
                 >
-                  Unfavor
+                  DISFAVOR
                 </ButtonFavoriteOff>
               </p>
               {title}
@@ -115,12 +115,15 @@ const ButtonX = styled.button`
 const ButtonFavorite = styled.button`
   margin-bottom: 10px;
   border-color: white;
-  background: white;
+  background: #f8f8f4b1;
   background-image: none;
   outline: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 20%;
+  :hover {
+    background: #f0ec12f9;
+  }
 `;
 
 const ButtonFavoriteOff = styled.button`
@@ -128,11 +131,12 @@ const ButtonFavoriteOff = styled.button`
   border: #fff7f7bd solid 0.1px;
   border-radius: 10%;
   color: white;
-  margin-left: 70%;
+  margin-left: 65%;
+  margin-bottom: 10px;
   :hover {
     background: #eb3c3cc6;
   }
 `;
 const ImageFavo = styled.img`
-  width: 18px;
+  width: 25px;
 `;
