@@ -57,18 +57,20 @@ export default function Card({ title, description, authors, date, read, img }) {
                   <ImageFavo src={favo} />
                 </ButtonFavorite>{" "}
                 <ButtonFavoriteOff
-                  onClick={(title) => localStorage.clear(title)}
+                  onClick={() => localStorage.removeItem(title)}
                 >
                   DISFAVOR
                 </ButtonFavoriteOff>
               </p>
               {title}
             </Typography>
+            <br />
+            <br />
             <Typography
               id="modal-modal-description"
               sx={{ mt: 2, textAlign: "justify" }}
             >
-              Description:
+              <b>Description:</b>
               {description.length > 299
                 ? " " + description.substr(0, 300) + " [ ... ]"
                 : `\n Without description `}
@@ -76,8 +78,10 @@ export default function Card({ title, description, authors, date, read, img }) {
               <br />
               <b>Authors:</b> {authors}
               <br />
+              <br />
               <b>Publication Date: </b>
               {date}
+              <br />
               <br />
               <b>
                 Read:{" "}
@@ -114,15 +118,14 @@ const ButtonX = styled.button`
 `;
 const ButtonFavorite = styled.button`
   margin-bottom: 10px;
-  border-color: white;
+  border: #fff7f7bd solid 0.1px;
   background: #f8f8f4b1;
-  background-image: none;
   outline: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 20%;
   :hover {
-    background: #f0ec12f9;
+    background: #ffa61f;
   }
 `;
 
