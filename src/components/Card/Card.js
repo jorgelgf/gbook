@@ -4,14 +4,15 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
-import favo from "../../img/favo.png";
+import SnackBarOn from "../SnackBar/SnackBarOn";
+import SnackBarOff from "../SnackBar/SnackBarOff";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 320,
+  width: 300,
   borderRadius: "10px",
   bgcolor: "white",
   boxShadow: 24,
@@ -49,19 +50,23 @@ export default function Card({ title, description, authors, date, read, img }) {
         >
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              <p style={{ fontSize: "14px", display: "flex" }}>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  margin: "0 0 25px 0",
+                }}
+              >
                 {" "}
-                <ButtonFavorite
-                  onClick={(event) => addFavor(title, read, event)}
-                >
-                  <ImageFavo src={favo} />
-                </ButtonFavorite>{" "}
-                <ButtonFavoriteOff
-                  onClick={() => localStorage.removeItem(title)}
-                >
-                  DISFAVOR
-                </ButtonFavoriteOff>
-              </p>
+                <div onClick={(event) => addFavor(title, read, event)}>
+                  <SnackBarOn />
+                </div>
+                <div onClick={() => localStorage.removeItem(title)}>
+                  <SnackBarOff />
+                </div>
+                <br />
+              </div>
               {title}
             </Typography>
             <br />
@@ -105,6 +110,7 @@ export default function Card({ title, description, authors, date, read, img }) {
     </>
   );
 }
+
 const ButtonX = styled.button`
   margin: 10px;
   padding: 3px 3px 3px 3px;
@@ -115,31 +121,4 @@ const ButtonX = styled.button`
   background-color: #222222;
   margin-top: "50px";
   margin-left: 90%;
-`;
-const ButtonFavorite = styled.button`
-  margin-bottom: 10px;
-  border: #fff7f7bd solid 0.1px;
-  background: #f8f8f4b1;
-  outline: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-radius: 20%;
-  :hover {
-    background: #ffa61f;
-  }
-`;
-
-const ButtonFavoriteOff = styled.button`
-  background: #d68484c7;
-  border: #fff7f7bd solid 0.1px;
-  border-radius: 10%;
-  color: white;
-  margin-left: 65%;
-  margin-bottom: 10px;
-  :hover {
-    background: #eb3c3cc6;
-  }
-`;
-const ImageFavo = styled.img`
-  width: 25px;
 `;
