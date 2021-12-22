@@ -17,7 +17,7 @@ const Favorites = () => {
   return (
     <DivFavor>
       <h1>
-        <ImgFavor src={favo} /> Books favorites <ImgFavor src={favo} />{" "}
+        <ImgFavor src={favo} /> Favorite Books <ImgFavor src={favo} />{" "}
       </h1>
       <p>
         <b>Titles</b>
