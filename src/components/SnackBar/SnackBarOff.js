@@ -41,6 +41,7 @@ export default function PositionedSnackbar() {
     <div>
       {buttons}
       <Snackbar
+        style={{ marginBottom: "400px" }}
         anchorOrigin={{ vertical, horizontal }}
         open={open}
         onClose={handleClose}

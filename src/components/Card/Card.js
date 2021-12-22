@@ -69,8 +69,6 @@ export default function Card({ title, description, authors, date, read, img }) {
               </div>
               {title}
             </Typography>
-            <br />
-            <br />
             <Typography
               id="modal-modal-description"
               sx={{ mt: 2, textAlign: "justify" }}
