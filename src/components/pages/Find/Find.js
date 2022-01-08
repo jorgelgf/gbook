@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Api from "../Api/Api";
+import Api from "../../Service/Api";
 import styled from "styled-components";
-import Card from "../Card/Card";
-import notfound from "../../img/notfound.png";
-import books from "../../img/books.jpg";
+import Card from "../../Card/Card";
+import notfound from "../../../img/notfound.png";
+import books from "../../../img/books.jpg";
 
 export default function Find() {
   const [search, setSearch] = useState(null);

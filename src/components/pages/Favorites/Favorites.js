@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import rowLeft from "../../img/rowLeft.png";
-import remove from "../../img/remove.png";
+import rowLeft from "../../../img/rowLeft.png";
+import remove from "../../../img/remove.png";
 import { useNavigate } from "react-router";
-import favo from "../../img/favo.png";
+import favo from "../../../img/favo.png";
 
 const Favorites = () => {
   const navigate = useNavigate();

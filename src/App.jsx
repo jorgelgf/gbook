@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home/Home";
-import NotFound from "./components/Home/NotFound";
-import Favorites from "./components/Favorites/Favorites";
+import Home from "./components/pages/Home/Home";
+import NotFound from "./components/pages/Home/NotFound";
+import Favorites from "./components/pages/Favorites/Favorites";
 
 function App() {
   return (

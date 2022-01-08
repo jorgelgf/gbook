@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import rowLeft from "../../img/rowLeft.png";
+import rowLeft from "../../../img/rowLeft.png";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {

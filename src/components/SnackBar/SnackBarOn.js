@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import favo from "../../img/favo.png";
-import styled from "styled-components";
+import * as S from "./style";
 
 export default function PositionedSnackbar() {
   const [state, setState] = React.useState({
@@ -32,7 +32,7 @@ export default function PositionedSnackbar() {
           horizontal: "right",
         })}
       >
-        <ImageFavo src={favo} />
+        <S.ImageFavo src={favo} />
       </Button>
     </React.Fragment>
   );
@@ -50,17 +50,3 @@ export default function PositionedSnackbar() {
     </div>
   );
 }
-
-const ImageFavo = styled.img`
-  width: 25px;
-  height: 25px;
-  padding: 0 0 0 0;
-  margin-right: 40px;
-  animation: load 30s linear infinite;
-
-  @keyframes load {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`;

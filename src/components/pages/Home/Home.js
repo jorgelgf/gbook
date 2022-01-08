@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Find from "../Find/Find";
-import MenuTop from "../Menu/MenuTop";
+import MenuTop from "../../Menu/MenuTop";
 
 const Home = () => {
   return (
