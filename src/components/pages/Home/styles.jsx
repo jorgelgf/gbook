@@ -1,24 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import Find from "../Find/Find";
-import MenuTop from "../../Menu/MenuTop";
 
-const Home = () => {
-  return (
-    <div>
-      <DivFull>
-        <DivInter>
-          <MenuBar>
-            <MenuTop />
-          </MenuBar>
-          <Find />
-        </DivInter>
-      </DivFull>
-    </div>
-  );
-};
-
-const DivFull = styled.div`
+export const DivFull = styled.div`
   display: flex;
   justify-content: center;
   width: auto;
@@ -31,8 +13,9 @@ const DivFull = styled.div`
       opacity: 1;
       transform: initial;
     }
+  }
 `;
-const DivInter = styled.div`
+export const DivInter = styled.div`
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -43,7 +26,7 @@ const DivInter = styled.div`
   opacity: 0.8;
   border-radius: 20px;
 `;
-const MenuBar = styled.div`
+export const MenuBar = styled.div`
   margin: 50px auto 0 auto;
   display: flex;
   //border: solid black 1px;
@@ -51,4 +34,3 @@ const MenuBar = styled.div`
   justify-content: flex-end;
   border-radius: 10px;
 `;
-export default Home;

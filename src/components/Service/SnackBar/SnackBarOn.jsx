@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
-import favo from "../../img/favo.png";
+import favo from "../../../img/favo.png";
 import * as S from "./style";
 
 export default function PositionedSnackbar() {

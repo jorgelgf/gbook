@@ -4,8 +4,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import styled from "styled-components";
-import SnackBarOn from "../SnackBar/SnackBarOn";
-import SnackBarOff from "../SnackBar/SnackBarOff";
+import SnackBarOn from "../Service/SnackBar/SnackBarOn";
+import SnackBarOff from "../Service/SnackBar/SnackBarOff";
 
 const style = {
   position: "absolute",
@@ -109,6 +109,7 @@ export default function Card({ title, description, authors, date, read, img }) {
   );
 }
 
+//styled component
 const ButtonX = styled.button`
   margin: 10px;
   padding: 3px 3px 3px 3px;
