@@ -3,10 +3,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import styled from "styled-components";
 import SnackBarOn from "../Service/SnackBar/SnackBarOn";
 import SnackBarOff from "../Service/SnackBar/SnackBarOff";
-
+import * as S from "./styles";
 const style = {
   position: "absolute",
   top: "50%",
@@ -24,7 +23,6 @@ export default function Card({ title, description, authors, date, read, img }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
     setOpen(true);
-    //console.log("local: ", localStorage.getItem(title));
   };
   const handleClose = (title) => {
     setOpen(false);
@@ -100,7 +98,7 @@ export default function Card({ title, description, authors, date, read, img }) {
               </b>
               <br />
               <br />
-              <ButtonX onClick={handleClose}>x</ButtonX>
+              <S.ButtonX onClick={handleClose}>x</S.ButtonX>
             </Typography>
           </Box>
         </Modal>
@@ -110,14 +108,3 @@ export default function Card({ title, description, authors, date, read, img }) {
 }
 
 //styled component
-const ButtonX = styled.button`
-  margin: 10px;
-  padding: 3px 3px 3px 3px;
-  border-radius: 5px;
-  width: 30px;
-  color: white;
-  border: none;
-  background-color: #222222;
-  margin-top: "50px";
-  margin-left: 90%;
-`;
