@@ -47,7 +47,7 @@ export default function Find() {
         <br />
         <form onSubmit={handleSubmit}>
           <S.DivInputButton>
-            <S.InputButtonSearch
+            <input
               type="search"
               name="search"
               id="search"
@@ -63,12 +63,6 @@ export default function Find() {
               return (
                 <S.DivImg key={i}>
                   <img
-                    style={{
-                      width: "120px",
-                      height: "150px",
-                      borderRadius: "10px",
-                      boxShadow: "0 0 1em #3d3a3a8a",
-                    }}
                     src={
                       e.volumeInfo.imageLinks
                         ? e.volumeInfo.imageLinks.smallThumbnail

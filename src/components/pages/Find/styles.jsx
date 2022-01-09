@@ -34,19 +34,21 @@ export const DivInputButton = styled.div`
   justify-content: center;
   margin: 30px;
   padding: 0;
+
+  input {
+    border: 1px solid white;
+    padding-left: 10px;
+    font-size: 24px;
+    width: 80%;
+    color: #222222;
+    height: 50px;
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+    outline: 0;
+    text-align: center;
+  }
 `;
-export const InputButtonSearch = styled.input`
-  border: 1px solid white;
-  padding-left: 10px;
-  font-size: 24px;
-  width: 80%;
-  color: #222222;
-  height: 50px;
-  background-color: white;
-  border-radius: 10px 0 0 10px;
-  outline: 0;
-  text-align: center;
-`;
+
 export const ButtonStyle = styled.button`
   background: white;
   color: #222222;
@@ -89,6 +91,13 @@ export const DivImg = styled.div`
   opacity: 0;
   transform: translateY(-50px);
   animation: animeTop 0.5s forwards;
+  
+  img{
+  width: 120px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 0 0 1em #3d3a3a8a;
+  }
 
   @keyframes animeTop {
     to {

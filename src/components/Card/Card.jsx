@@ -106,5 +106,3 @@ export default function Card({ title, description, authors, date, read, img }) {
     </>
   );
 }
-
-//styled component
