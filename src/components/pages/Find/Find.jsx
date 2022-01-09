@@ -47,22 +47,11 @@ export default function Find() {
         <br />
         <form onSubmit={handleSubmit}>
           <S.DivInputButton>
-            <input
+            <S.InputButtonSearch
               type="search"
               name="search"
               id="search"
               onChange={handleChange}
-              style={{
-                border: "1px solid white",
-                paddingLeft: "10px",
-                fontSize: "24px",
-                color: "#222222",
-                width: "80%",
-                height: "50px",
-                backgroundColor: "white",
-                borderRadius: "10px 0 0 10px",
-                outline: "0",
-              }}
             />
             <S.ButtonStyle>SEARCH</S.ButtonStyle>
           </S.DivInputButton>

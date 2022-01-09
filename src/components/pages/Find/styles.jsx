@@ -3,9 +3,7 @@ import styled from "styled-components";
 import books from "../../../img/books.jpg";
 
 export const OpacityDiv = styled.div`
-  // background-color: #222222;
   background-image: url(${books});
-  // color: white;
   background-size: cover;
   margin: auto;
   margin-top: 20px;
@@ -36,6 +34,18 @@ export const DivInputButton = styled.div`
   justify-content: center;
   margin: 30px;
   padding: 0;
+`;
+export const InputButtonSearch = styled.input`
+  border: 1px solid white;
+  padding-left: 10px;
+  font-size: 24px;
+  width: 80%;
+  color: #222222;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px 0 0 10px;
+  outline: 0;
+  text-align: center;
 `;
 export const ButtonStyle = styled.button`
   background: white;
