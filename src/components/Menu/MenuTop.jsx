@@ -18,14 +18,14 @@ export default function MenuTop() {
   return (
     <div>
       <Button
-        style={{ color: "black", fontSize: "10px" }}
+        style={{ color: "black", fontSize: "15px" }}
         id="basic-button"
         aria-controls="basic-menu"
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        OPTIONS
+        ...
       </Button>
       <Menu
         id="basic-menu"
