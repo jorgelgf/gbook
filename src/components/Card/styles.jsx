@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
-export const ButtonX = styled.button`
-  margin: 10px;
-  padding: 3px 3px 3px 3px;
-  border-radius: 5px;
-  width: 30px;
-  color: white;
-  border: none;
-  background-color: #222222;
-  margin-top: "50px";
-  margin-left: 90%;
+export const DivFull = styled.p`
+  transition: all 0.5s;
+  cursor: pointer;
+  :hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+`;
+export const DivButtonX = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const DivFavorite = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;

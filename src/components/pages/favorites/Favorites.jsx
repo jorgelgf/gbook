@@ -52,9 +52,11 @@ export default function Favorites() {
         <br />
         <img src={rowLeft} style={{ width: "50px" }} alt="row left to back" />
       </Link>
-      <footer style={{ marginTop: "100px" }}>
-        OBS: Click on the name to reading
-      </footer>
+      {Object.keys(localStorage).length !== 0 && (
+        <footer style={{ marginTop: "100px" }}>
+          OBS: click on the book name to read
+        </footer>
+      )}
     </S.DivFavor>
   );
 }

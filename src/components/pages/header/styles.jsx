@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import books from "../../../img/books.jpg";
 
-export const OpacityDiv = styled.div`
+export const DivFullHeader = styled.div`
   background-image: url(${books});
   background-size: cover;
   margin: auto;
@@ -24,9 +24,13 @@ export const OpacityDiv = styled.div`
 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    @media (max-width: 400px) {
+    @media (max-width: 450px) {
       font-size: 25px;
     }
+  }
+
+  @media (max-width: 450px) {
+    width: 90%;
   }
 `;
 
@@ -47,6 +51,11 @@ export const DivInputButton = styled.div`
     border-radius: 10px 0 0 10px;
     outline: 0;
     text-align: center;
+    @media (max-width: 450px) {
+      height: 30px;
+      font-size: 13px;
+      width: 99%;
+    }
   }
 `;
 
@@ -60,6 +69,12 @@ export const ButtonStyle = styled.button`
     background: #e26262;
     border-color: #e26262;
     color: white;
+  }
+  @media (max-width: 450px) {
+    height: 30px;
+    font-size: 10px;
+    width: 58px;
+    border: 1px solid white;
   }
 `;
 export const GridDiv = styled.div`
@@ -92,12 +107,19 @@ export const DivImg = styled.div`
   opacity: 0;
   transform: translateY(-50px);
   animation: animeTop 0.5s forwards;
+
   
   img{
   width: 120px;
   height: 150px;
   border-radius: 10px;
   box-shadow: 0 0 1em #3d3a3a8a;
+
+  :hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+
+  }
   }
 
   @keyframes animeTop {

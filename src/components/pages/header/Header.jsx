@@ -25,18 +25,18 @@ export default function Header() {
   if (loading)
     return (
       <>
-        <S.OpacityDiv>
+        <S.DivFullHeader>
           {" "}
           <h1>
             <label htmlFor="search">BOOK SEARCH</label>
           </h1>
-        </S.OpacityDiv>
+        </S.DivFullHeader>
         <S.DivLoading></S.DivLoading>
       </>
     );
   return (
     <>
-      <S.OpacityDiv>
+      <S.DivFullHeader>
         <h1>
           <label htmlFor="search">BOOK SEARCH</label>
         </h1>
@@ -52,20 +52,30 @@ export default function Header() {
             <S.ButtonStyle>SEARCH</S.ButtonStyle>
           </S.DivInputButton>
         </form>
-      </S.OpacityDiv>
+      </S.DivFullHeader>
       <S.GridDiv>
         {book
           ? book.map((e, i) => {
               return (
                 <S.DivImg key={i}>
-                  <img
-                    src={
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
                       e.volumeInfo.imageLinks
-                        ? e.volumeInfo.imageLinks.smallThumbnail
-                        : notfound
+                        ? e.volumeInfo.imageLinks.thumbnail
+                        : null
                     }
-                    alt=""
-                  />
+                  >
+                    <img
+                      src={
+                        e.volumeInfo.imageLinks
+                          ? e.volumeInfo.imageLinks.smallThumbnail
+                          : notfound
+                      }
+                      alt=""
+                    />
+                  </a>
                   <Card
                     title={
                       e.volumeInfo.title ? e.volumeInfo.title : " Without title"

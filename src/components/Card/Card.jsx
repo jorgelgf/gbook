@@ -6,6 +6,9 @@ import Modal from "@mui/material/Modal";
 import SnackBarOn from "../../Service/SnackBar/SnackBarOn";
 import SnackBarOff from "../../Service/SnackBar/SnackBarOff";
 import * as S from "./styles";
+
+import Stack from "@mui/material/Stack";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -16,7 +19,7 @@ const style = {
   bgcolor: "white",
   boxShadow: 24,
   alignText: "justify",
-  p: 3,
+  p: 2,
 };
 
 export default function Card({ title, description, authors, date, read, img }) {
@@ -36,7 +39,7 @@ export default function Card({ title, description, authors, date, read, img }) {
   return (
     <>
       {" "}
-      <div>
+      <S.DivFull>
         <Button onClick={handleOpen} style={{ color: "black" }}>
           +Info
         </Button>
@@ -57,12 +60,14 @@ export default function Card({ title, description, authors, date, read, img }) {
                 }}
               >
                 {" "}
-                <div onClick={(event) => addFavor(title, read, event)}>
-                  <SnackBarOn />
-                </div>
-                <div onClick={() => localStorage.removeItem(title)}>
-                  <SnackBarOff />
-                </div>
+                <S.DivFavorite>
+                  <div onClick={(event) => addFavor(title, read, event)}>
+                    <SnackBarOn />
+                  </div>
+                  <div onClick={() => localStorage.removeItem(title)}>
+                    <SnackBarOff />
+                  </div>
+                </S.DivFavorite>
                 <br />
               </div>
               {title}
@@ -70,6 +75,8 @@ export default function Card({ title, description, authors, date, read, img }) {
             <Typography
               id="modal-modal-description"
               sx={{ mt: 2, textAlign: "justify" }}
+              component={"span"}
+              variant={"body2"}
             >
               <b>Description:</b>
               {description.length > 299
@@ -98,11 +105,21 @@ export default function Card({ title, description, authors, date, read, img }) {
               </b>
               <br />
               <br />
-              <S.ButtonX onClick={handleClose}>x</S.ButtonX>
+              <S.DivButtonX>
+                <Stack direction="row" spacing={2}>
+                  <Button
+                    onClick={handleClose}
+                    variant="outlined"
+                    color="error"
+                  >
+                    x
+                  </Button>
+                </Stack>
+              </S.DivButtonX>
             </Typography>
           </Box>
         </Modal>
-      </div>
+      </S.DivFull>
     </>
   );
 }

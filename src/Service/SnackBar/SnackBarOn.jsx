@@ -13,15 +13,15 @@ export default function PositionedSnackbar() {
 
   const { vertical, horizontal, open } = state;
 
-  const handleClick = (newState) => () => {
-    setState({ open: true, ...newState });
+  const handleClick = (newState) => async () => {
+    await setState({ open: true, ...newState });
     setTimeout(() => {
       handleClose();
     }, 2000);
   };
 
-  const handleClose = () => {
-    setState({ ...state, open: false });
+  const handleClose = async () => {
+    await setState({ ...state, open: false });
   };
 
   const buttons = (
@@ -32,7 +32,9 @@ export default function PositionedSnackbar() {
           horizontal: "right",
         })}
       >
-        <S.ImageFavo src={favo} />
+        <S.DivImageRight>
+          <img src={favo} alt="off favorite" />
+        </S.DivImageRight>
       </Button>
     </React.Fragment>
   );
