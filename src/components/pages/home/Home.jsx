@@ -1,5 +1,5 @@
 import React from "react";
-import Find from "../Find/Find";
+import Header from "../header/Header";
 import MenuTop from "../../Menu/MenuTop";
 import * as S from "./styles";
 
@@ -11,7 +11,7 @@ export default function Home() {
           <S.MenuBar>
             <MenuTop />
           </S.MenuBar>
-          <Find />
+          <Header />
         </S.DivInter>
       </S.DivFull>
     </div>

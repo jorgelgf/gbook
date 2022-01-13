@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import SnackBarOn from "../Service/SnackBar/SnackBarOn";
-import SnackBarOff from "../Service/SnackBar/SnackBarOff";
+import SnackBarOn from "../../Service/SnackBar/SnackBarOn";
+import SnackBarOff from "../../Service/SnackBar/SnackBarOff";
 import * as S from "./styles";
 const style = {
   position: "absolute",

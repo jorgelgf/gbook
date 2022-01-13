@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Api from "../../Service/fetch/Api";
+import Api from "../../../Service/fetch/Api";
 import Card from "../../Card/Card";
 import notfound from "../../../img/notfound.png";
 import * as S from "./styles";
 
-export default function Find() {
+export default function Header() {
   const [search, setSearch] = useState(null);
 
   const { book, request, loading } = Api();
@@ -12,18 +12,14 @@ export default function Find() {
     setSearch(event.target.value);
   };
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
-    try {
-      await request(
+    if (search !== null && !search.match(/^(\s)+$/)) {
+      request(
         `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`
       );
-    } catch (e) {
-      console.log(
-        "Você precisa digitar algo \nAbaixo o código do erro gerado: \n",
-        e
-      );
+      setSearch(null);
     }
   }
   if (loading)

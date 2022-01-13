@@ -10,6 +10,7 @@ export const OpacityDiv = styled.div`
   border-radius: 10px;
   width: 70%;
   margin-bottom: 30px;
+  background-attachment: fixed;
 
   h1 {
     font-weight: 700;
