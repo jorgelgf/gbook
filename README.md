@@ -1,4 +1,4 @@
-# App Book Search using Google Books API
+# Aplicativo que consome a API de livros da Google
 
 ### v 1.0
 
