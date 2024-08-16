@@ -1,4 +1,4 @@
-# Aplicativo que consome a API de livros da Google
+# Site que consome a API de livros da Google
 
 ### v 1.0
 
